@@ -1,6 +1,6 @@
 # Maintainer: <github@fleuryn.fr>
 pkgname=bash_config
-pkgver=0.0.1.r0.g13e73b1
+pkgver=0.0.2.r0.ge119177
 pkgrel=1
 pkgdesc="Config scripts for bash environment"
 arch=('any')
@@ -15,7 +15,7 @@ source=( "git://github.com/spamn/${pkgname}.git")
 md5sums=("SKIP")
 
 pkgver() {
-    cd "${srcdir}/bash_config"
+    cd "${srcdir}/${pkgname}"
     printf "%s" "$(git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g')" 
 }
 
@@ -24,7 +24,7 @@ build() {
 }
 
 package() {
-	cd $_gitname
+	cd $pkgname
 	make DESTDIR="$pkgdir/" install
 }
 
