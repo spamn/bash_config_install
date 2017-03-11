@@ -1,0 +1,5 @@
+*.tar.xz
+src/
+pkg/
+bash_config/
+.*.sw[a-z]
